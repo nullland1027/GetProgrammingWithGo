@@ -11,7 +11,7 @@ func GetCharByIndex(str string) {
 	}
 }
 
-func caesarEncodeChar(char rune, step byte) rune {
+func CaesarEncodeChar(char rune, step byte) rune {
 	var encodedChar rune
 	if char >= 'A' && char <= 'Z' {
 		encodedChar = 'A' + ((char-'A')+rune(step))%26
@@ -23,7 +23,7 @@ func caesarEncodeChar(char rune, step byte) rune {
 	return encodedChar
 }
 
-func caesarDecodeChar(encodedChar rune, step byte) rune {
+func CaesarDecodeChar(encodedChar rune, step byte) rune {
 	var decodedChar rune
 	if encodedChar >= 'A' && encodedChar <= 'Z' {
 		decodedChar = 'A' + rune(utils.CorrectMod(int((encodedChar-'A')-rune(step)), 26))
@@ -38,7 +38,7 @@ func caesarDecodeChar(encodedChar rune, step byte) rune {
 func CaesarEncodeString(s string, step byte) string {
 	encoded := ""
 	for i := 0; i < len(s); i++ {
-		encoded += string(caesarEncodeChar(rune(s[i]), step))
+		encoded += string(CaesarEncodeChar(rune(s[i]), step))
 	}
 	return encoded
 }
@@ -46,7 +46,7 @@ func CaesarEncodeString(s string, step byte) string {
 func CaesarDecodeString(encoded string, step byte) string {
 	decodedString := ""
 	for i := 0; i < len(encoded); i++ {
-		decodedChar := caesarDecodeChar(rune(encoded[i]), step)
+		decodedChar := CaesarDecodeChar(rune(encoded[i]), step)
 		decodedString += string(decodedChar)
 	}
 	return decodedString

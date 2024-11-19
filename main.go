@@ -1,7 +1,7 @@
 package main
 
 import (
-	"GetProgrammingWithGo/unit2/stringAndRune"
+	"GetProgrammingWithGo/unit2/typeConvertion"
 	"fmt"
 	"gopkg.in/yaml.v3"
 	"log"
@@ -59,9 +59,5 @@ func readRestaurants() {
 }
 
 func main() {
-	encodeString := stringAndRune.CaesarEncodeString("Hello World!", 4)
-	fmt.Println(encodeString)
-
-	decodeString := stringAndRune.CaesarDecodeString(encodeString, 4)
-	fmt.Println(decodeString)
+	typeConvertion.Decipher("CSITEUIWUIZNSROCNKFD", "GOLANG")
 }
